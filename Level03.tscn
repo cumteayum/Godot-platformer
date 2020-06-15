@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://floor1.png" type="Texture" id=1]
+[ext_resource path="res://End.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Backgrounds/backgroundForest.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/bushes/cloud1.png" type="Texture" id=6]
+[ext_resource path="res://Portal.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 93.337
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0.5, 0, 48, 0, 48, 30, 0.5, 30 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 48, 0, 48, 30, 0, 30 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "floor1.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 48, 210, 48, 30 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "floor1.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 48, 270, 48, 30 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "floor1.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 210, 48, 30 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 4 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[node name="Game" type="Node2D"]
+position = Vector2( 0, 6.4754 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 520.567, 326.044 )
+scale = Vector2( 1, 0.615548 )
+texture = ExtResource( 3 )
+
+[node name="Bumper" type="Area2D" parent="."]
+position = Vector2( 1120.53, 558.231 )
+scale = Vector2( 0.510596, 0.533119 )
+
+[node name="Sprite" type="Sprite" parent="Bumper"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bumper"]
+position = Vector2( -10.9348, 1.67346 )
+shape = SubResource( 1 )
+
+[node name="Bumper2" type="Area2D" parent="."]
+position = Vector2( 1120.53, 558.231 )
+scale = Vector2( 0.510596, 0.533119 )
+
+[node name="Sprite" type="Sprite" parent="Bumper2"]
+position = Vector2( -308.542, 19.272 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bumper2"]
+position = Vector2( -312.77, 8.09747 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 158.373, 64.0239 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 48, 30 )
+format = 1
+tile_data = PoolIntArray( -196564, 2, 0, -131028, 2, 0, -65492, 2, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 44, 2, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65580, 2, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131116, 2, 0, 196608, 0, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196651, 0, 0, 196652, 2, 0, 262144, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262187, 0, 0, 262188, 2, 0, 327680, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327713, 2, 0, 327719, 1, 0, 327720, 1, 0, 327721, 1, 0, 327722, 1, 0, 327723, 0, 0, 327724, 2, 0, 393216, 1, 0, 393224, 1, 0, 393225, 1, 0, 393233, 1, 0, 393234, 1, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393248, 2, 0, 393258, 1, 0, 393259, 0, 0, 393260, 2, 0, 458752, 1, 0, 458769, 1, 0, 458770, 1, 0, 458783, 0, 0, 458784, 2, 0, 458794, 1, 0, 458795, 0, 0, 458796, 2, 0, 524288, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524294, 1, 0, 524295, 1, 0, 524318, 0, 0, 524319, 2, 0, 524320, 2, 0, 524325, 0, 0, 524326, 0, 0, 524330, 1, 0, 524331, 0, 0, 524332, 2, 0, 589824, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589852, 2, 0, 589853, 2, 0, 589854, 2, 0, 589855, 2, 0, 589863, 1, 0, 589864, 1, 0, 589865, 1, 0, 589866, 1, 0, 589867, 1, 0, 589868, 2, 0, 655360, 1, 0, 655383, 2, 0, 655384, 2, 0, 655385, 2, 0, 655386, 2, 0, 655387, 2, 0, 655388, 2, 0, 655404, 2, 0, 720896, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 720932, 1, 0, 720940, 2, 0, 786432, 1, 0, 786435, 1, 0, 786442, 1, 0, 786443, 1, 0, 786476, 2, 0, 851968, 1, 0, 851971, 1, 0, 851972, 1, 0, 851976, 1, 0, 851977, 1, 0, 852012, 2, 0, 917504, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 1, 0, 917525, 2, 0, 917533, 1, 0, 917534, 1, 0, 917535, 1, 0, 917544, 1, 0, 917548, 2, 0, 983040, 1, 0, 983061, 2, 0, 983078, 1, 0, 983079, 1, 0, 983084, 2, 0, 1048576, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048597, 2, 0, 1048612, 1, 0, 1048613, 1, 0, 1048620, 2, 0, 1114112, 1, 0, 1114117, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114133, 2, 0, 1114138, 1, 0, 1114139, 1, 0, 1114153, 1, 0, 1114154, 1, 0, 1114155, 1, 0, 1114156, 2, 0, 1179648, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179669, 2, 0, 1179674, 1, 0, 1179675, 1, 0, 1179689, 1, 0, 1179690, 1, 0, 1179691, 1, 0, 1179692, 2, 0, 1245184, 1, 0, 1245205, 2, 0, 1245209, 1, 0, 1245210, 1, 0, 1245211, 1, 0, 1245212, 1, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245223, 0, 0, 1245224, 1, 0, 1245225, 1, 0, 1245226, 2, 0, 1245227, 2, 0, 1245228, 2, 0, 1310720, 1, 0, 1310721, 1, 0, 1310722, 1, 0, 1310723, 1, 0, 1310724, 1, 0, 1310725, 1, 0, 1310737, 1, 0, 1310738, 1, 0, 1310739, 1, 0, 1310740, 1, 0, 1310741, 1, 0, 1310742, 1, 0, 1310743, 1, 0, 1310744, 1, 0, 1310745, 1, 0, 1310746, 2, 0, 1310747, 2, 0, 1310748, 2, 0, 1310749, 2, 0, 1310750, 2, 0, 1310751, 2, 0, 1310752, 2, 0, 1310753, 2, 0, 1310754, 2, 0, 1310755, 2, 0, 1310756, 2, 0, 1310757, 0, 0, 1310758, 0, 0, 1310759, 2, 0, 1310760, 2, 0, 1310761, 2, 0, 1310762, 2, 0, 1310763, 0, 0, 1310764, 1, 0, 1376256, 1, 0, 1376257, 1, 0, 1376258, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 1, 0, 1376264, 1, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1376269, 1, 0, 1376270, 1, 0, 1376271, 1, 0, 1376272, 1, 0, 1376273, 1, 0, 1376274, 1, 0, 1376275, 1, 0, 1376276, 1, 0, 1376277, 1, 0, 1376278, 1, 0, 1376279, 1, 0, 1376280, 1, 0, 1376281, 1, 0, 1376282, 1, 0, 1376283, 1, 0, 1376284, 1, 0, 1376285, 1, 0, 1376286, 1, 0, 1376287, 1, 0, 1376288, 1, 0, 1376289, 1, 0, 1376290, 1, 0, 1376291, 1, 0, 1376292, 1, 0, 1376293, 1, 0, 1376294, 1, 0, 1376295, 1, 0, 1376296, 1, 0, 1376297, 1, 0, 1376298, 1, 0, 1376299, 1, 0, 1376300, 1, 0 )
+
+[node name="Portal" parent="TileMap" instance=ExtResource( 7 )]
+position = Vector2( 1975.05, 231.158 )
+scale = Vector2( 0.5, 0.5 )
+next_scene = ExtResource( 2 )
+[connection signal="body_entered" from="Bumper" to="Player" method="_on_Bumper_body_entered"]
+[connection signal="body_entered" from="Bumper2" to="Player" method="_on_Bumper_body_entered"]

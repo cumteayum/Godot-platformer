@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://floor.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/ground_grass.png" type="Texture" id=2]
+[ext_resource path="res://assets/Backgrounds/backgroundForest.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/bushes/cloud1.png" type="Texture" id=6]
+[ext_resource path="res://Portal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Level02.tscn" type="PackedScene" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0.500004, 0, 48, 0, 48, 30, 0.500004, 30 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "ground_grass.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 120, 60 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "ground_grass.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 120, 0, 120, 60 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "floor.jpg 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 48, 0, 48, 30 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 1 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 93.337
+
+[node name="Game" type="Node2D"]
+position = Vector2( 0, 6.4754 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 48, 30 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 262144, 2, 0, 262158, 2, 0, 262159, 2, 0, 327680, 2, 0, 327687, 2, 0, 327688, 2, 0, 327689, 2, 0, 327693, 2, 0, 327696, 2, 0, 327697, 2, 0, 327698, 2, 0, 327699, 2, 0, 393216, 2, 0, 393229, 2, 0, 458752, 2, 0, 524288, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 589824, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 655360, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 720896, 2, 0, 786432, 2, 0, 786436, 2, 0, 786437, 2, 0, 786443, 2, 0, 786445, 2, 0, 851968, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851981, 2, 0, 851986, 2, 0, 851987, 2, 0, 851988, 2, 0, 917504, 2, 0, 917517, 2, 0, 983040, 2, 0, 983045, 2, 0, 983046, 2, 0, 1048576, 2, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1114112, 2, 0, 1114113, 2, 0, 1114114, 2, 0, 1114115, 2, 0, 1114128, 2, 0, 1114131, 2, 0, 1114132, 2, 0, 1179648, 2, 0, 1179659, 2, 0, 1179661, 2, 0, 1245184, 2, 0, 1245192, 2, 0, 1245193, 2, 0, 1245194, 2, 0, 1245195, 2, 0, 1245197, 2, 0, 1245202, 2, 0, 1245203, 2, 0, 1245204, 2, 0, 1310720, 2, 0, 1310721, 2, 0, 1310722, 2, 0, 1310723, 2, 0, 1310724, 2, 0, 1310725, 2, 0, 1310726, 2, 0, 1310727, 2, 0, 1310728, 2, 0, 1310729, 2, 0, 1310730, 2, 0, 1310731, 2, 0, 1310733, 2, 0, 1310734, 2, 0, 1310735, 2, 0, 1310736, 2, 0, 1310737, 2, 0, 1310738, 2, 0, 1310739, 2, 0, 1310740, 2, 0, 1376256, 2, 0, 1376269, 2, 0, 1376277, 2, 0, 1441792, 2, 0, 1441813, 2, 0, 1507328, 2, 0, 1507349, 2, 0, 1507350, 2, 0, 1572864, 2, 0, 1572885, 2, 0, 1572886, 2, 0, 1638400, 2, 0, 1638402, 2, 0, 1638414, 2, 0, 1638415, 2, 0, 1638416, 2, 0, 1638417, 2, 0, 1638418, 2, 0, 1638419, 2, 0, 1638420, 2, 0, 1638421, 2, 0, 1638422, 2, 0, 1638423, 2, 0, 1638424, 2, 0, 1638425, 2, 0, 1638426, 2, 0, 1638427, 2, 0, 1638428, 2, 0, 1638429, 2, 0, 1703936, 2, 0, 1703937, 2, 0, 1703938, 2, 0, 1703939, 2, 0, 1703940, 2, 0, 1703941, 2, 0, 1703942, 2, 0, 1703943, 2, 0, 1703944, 2, 0, 1703945, 2, 0, 1703946, 2, 0, 1703947, 2, 0, 1703948, 2, 0, 1703949, 2, 0, 1703950, 2, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 520.567, 326.044 )
+scale = Vector2( 1, 0.615548 )
+texture = ExtResource( 3 )
+
+[node name="Bumper" type="Area2D" parent="."]
+position = Vector2( 606.808, 743.169 )
+scale = Vector2( 0.510596, 0.533119 )
+
+[node name="Sprite" type="Sprite" parent="Bumper"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bumper"]
+position = Vector2( -4.22729, 8.09753 )
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 158.373, 64.0239 )
+
+[node name="Portal" parent="." instance=ExtResource( 7 )]
+position = Vector2( 975.83, 353.961 )
+scale = Vector2( 0.5, 0.5 )
+next_scene = ExtResource( 8 )
+[connection signal="body_entered" from="Bumper" to="Player" method="_on_Bumper_body_entered"]
